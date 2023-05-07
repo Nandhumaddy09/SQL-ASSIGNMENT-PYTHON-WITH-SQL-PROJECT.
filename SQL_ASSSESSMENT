@@ -1,4 +1,5 @@
----- EXCERCISE1 
+ EXCERCISE 1
+ SQL QUERY:
 
 create database ONLINE_CONSULTATION;
 CREATE TABLE DOCTOR(
@@ -30,3 +31,20 @@ DOCTOR_ID INT PRIMARY KEY NOT NULL,
 PATIENT_ID INT NOT NULL,
 RATING INT NOT NULL);
 ----------------------------------------------------------------------------------------------------------------------------------
+EXCERCISE 2
+
+SQL QUERY:
+
+SELECT * FROM Contact WHERE Active_flag = 1;
+
+UPDATE Contact SET Active_flag = 0 WHERE opt_out = 1;
+
+DELETE FROM Contact WHERE company = 'ABC';
+
+INSERT INTO Contact VALUES (658, 'mili@gmail.com', 'mili', NULL, 'DGH', 1, 1);
+
+SELECT DISTINCT company FROM Contact;
+
+UPDATE Contact SET fname = 'niti' WHERE Email = 'mili@gmail.com';
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
