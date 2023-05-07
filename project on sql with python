@@ -4,25 +4,25 @@ print(mydb.connection_id)
 cur=mydb.cursor()
 cur.execute('create database Inventory_Management')
 
-'''t='create table manufacure(manufacture_id int,item varchar(30),no_of_items_required int,defective int)'
-cur.execute(t)
+'''T='create table manufatcure(manufacture_id int,item varchar(30),no_of_items_required int,defective int)'
+cur.execute(T)
 
-u='create table goods(goods_id int,item varchar(30),company varchar(30),manufacure_date date)'
-cur.execute(u)
+U='create table goods(goods_id int,item varchar(30),company varchar(30),manufacure_date date)'
+cur.execute(U)
 
-r='create table purchase(store_type varchar(30),purchase_id int, purchase_amount int,items varchar(30))'
-cur.execute(r)
+R='create table purchase(store_type varchar(30),purchase_id int, purchase_amount int,items varchar(30))'
+cur.execute(R)
 
-s='create table sale(store varchar(30),sale_date date,profit_margin float,salesitem varchar(30))'
+S='create table sale(store varchar(30),sale_date date,profit_margin float,salesitem varchar(30))'
 cur.execute(s)
 
 
-a='insert into manufacure(manufacture_id,item,no_of_items_required,defective) values(%s,%s,%s,%s)'
+a='insert into manufacture(manufacture_id,item,no_of_items_required,defective) values(%s,%s,%s,%s)'
 z=[(200,'wooden table',2,0),(201,'wooden chair',1,0),(202,'red coloured toys',3,0),(204,'shirt',2,1)]
 cur.executemany(a,z)
 mydb.commit()
 
-a='insert into goods(goods_id,item,company,manufacure_date) values(%s,%s,%s,%s)'
+a='insert into goods(goods_id,item,company,manufacture_date) values(%s,%s,%s,%s)'
 z=[(300,'wooden table','ss export company','2023-4-1'),(301,'wooden chair','abd company','2023-4-29'),(302,'red coloured toys','xyz company','2023-5-1'),(304,'shirt','bc company','2023-5-1')]
 cur.executemany(a,z)
 mydb.commit()
@@ -40,17 +40,17 @@ cur.executemany(a,z)
 mydb.commit()
 
 
-a='delete from inventory_management.manufacure where defective = 1'
+a='delete from inventory_management.manufacture where defective = 1'
 cur.execute(a)
 mydb.commit()'''
 
 
-a='update manufacure set manufacture_id=700 where sale.store="MYKIDS store"'
+a='update manufacture set manufacture_id=700 where sale.store="MYKIDS store"'
 cur.execute(a)
 mydb.commit()
 
 
-a='select item from goods where item  like "%wooden chair" and manufacure_date < "2023-5-1" '
+a='select item from goods where item  like "%wooden chair" and manufacture_date < "2023-5-1" '
 cur.execute(a)
 display=cur.fetchall()
 for x in display:
